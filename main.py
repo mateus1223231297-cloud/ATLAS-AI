@@ -62,7 +62,7 @@ def executar_robo():
                         odd = outcome['price']
                         ev = (prob_real * odd) - 1
                         
-                        if ev > 0.05: 
+                        if ev > 0.01: 
                             msg = (
                                 f"🚀 OPORTUNIDADE EV+ (Série A)\n\n"
                                 f"🏟 Partida: {home} vs {away}\n"
