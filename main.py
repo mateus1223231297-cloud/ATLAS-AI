@@ -62,7 +62,7 @@ def executar_robo():
                         odd = outcome['price']
                         ev = (prob_real * odd) - 1
                         
-                        if ev > 0.01: 
+                        if ev > 0.01:
                             msg = (
                                 f"🚀 OPORTUNIDADE EV+ (Série A)\n\n"
                                 f"🏟 Partida: {home} vs {away}\n"
@@ -73,6 +73,8 @@ def executar_robo():
                             )
                             enviar_telegram(msg)
 
+    enviar_telegram("🤖 Robô operando: Verificação concluída.")
+
 if __name__ == "__main__":
     executar_robo()
-      
+    
