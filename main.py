@@ -28,7 +28,8 @@ def enviar_telegram(mensagem):
 
 def executar_robo():
     url = 'https://api.the-odds-api.com/v4/sports/soccer_brazil_campeonato/odds'
-    params = {'apiKey': API_KEY, 'regions': 'eu', 'markets': 'totals,btts', 'oddsFormat': 'decimal'}
+    # Usando apenas o mercado 'totals' para evitar o erro 422 da API
+    params = {'apiKey': API_KEY, 'regions': 'eu', 'markets': 'totals', 'oddsFormat': 'decimal'}
     
     response = requests.get(url, params=params)
     if response.status_code != 200:
@@ -40,37 +41,27 @@ def executar_robo():
         enviar_telegram("⚠️ Nenhum jogo encontrado na grade da API neste momento.")
         return
 
-    enviar_telegram("📊 *RELATÓRIO DE ANÁLISE - RODADA DE HOJE* ⚽")
+    enviar_telegram("📊 *RELATÓRIO DE ANÁLISE - RODADA* ⚽")
 
     for event in data:
         home = event.get('home_team')
         away = event.get('away_team')
         
-        # Pega as estatísticas dos times ou usa uma média padrão se não encontrar
         casa = dados_times.get(home, {"marcados": 1.3, "sofridos": 1.3})
         fora = dados_times.get(away, {"marcados": 1.3, "sofridos": 1.3})
         
-        # Cálculo de Expectativa de Gols (Poisson simplificado)
         lambda_base = ((casa['marcados'] + fora['sofridos']) / 2) + ((fora['marcados'] + casa['sofridos']) / 2)
         lambda_final = lambda_base * 0.95
         
-        # Probabilidade de Over 2.5
         p0 = math.exp(-lambda_final)
         p1 = p0 * lambda_final
         p2 = (p1 * lambda_final) / 2
         prob_over25 = (1 - (p0 + p1 + p2)) * 100
-        
-        # Probabilidade de Ambos Marcam (BTTS)
-        prob_casa_marca = (1 - math.exp(-((casa['marcados'] + fora['sofridos']) / 2))) * 100
-        prob_fora_marca = (1 - math.exp(-((fora['marcados'] + casa['sofridos']) / 2))) * 100
-        prob_btts = (prob_casa_marca / 100) * (prob_fora_marca / 100) * 100
 
-        # Monta a mensagem de análise detalhada do jogo
         msg = (
             f"🏟 *{home} vs {away}*\n"
             f"📈 Exp. de Gols: `{lambda_final:.2f}`\n"
             f"⚽ Prob. Over 2.5: `{prob_over25:.1f}%`\n"
-            f"🤝 Prob. Ambos Marcam: `{prob_btts:.1f}%`\n"
             f"-----------------------------------"
         )
         enviar_telegram(msg)
