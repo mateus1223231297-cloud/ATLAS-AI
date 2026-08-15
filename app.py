@@ -1,37 +1,28 @@
 import streamlit as st
 import pandas as pd
-import math
+import json
 
-# Estilo "Homem de Ferro"
 st.set_page_config(page_title="Atlas - Central de Inteligência", layout="wide")
 
-st.title("🔴 ATLAS - Central de Análise Brasileirão")
-st.markdown("---")
+st.markdown("""
+    <style>
+    .main { background-color: #0e1117; }
+    h1 { color: #00f2ff; }
+    </style>
+    """, unsafe_allow_html=True)
 
-# Simulando dados (em breve vamos conectar direto ao seu script)
-data = {
-    "Partida": ["Fluminense x Palmeiras", "Athletico-PR x Bragantino", "São Paulo x Coritiba"],
-    "Exp_Gols": [2.14, 2.33, 2.38],
-    "Prob_Over_25": [36.0, 41.1, 42.4]
-}
-df = pd.DataFrame(data)
+st.title("🔴 ATLAS - Central de Inteligência")
+st.subheader("Protocolo de Monitoramento Brasileirão 2026")
 
-# Layout das Colunas (Cards de Inteligência)
-col1, col2, col3 = st.columns(3)
+# Esta parte vai ler um arquivo que o seu robô vai atualizar automaticamente
+try:
+    with open('analise_jogos.json', 'r') as f:
+        dados = json.load(f)
+        df = pd.DataFrame(dados)
+        st.table(df)
+except FileNotFoundError:
+    st.warning("⚠️ Atlas em espera. Execute o robô de varredura para atualizar os dados.")
 
-with col1:
-    st.metric(label="Análises Ativas", value="3")
-with col2:
-    st.metric(label="Status do Protocolo", value="Online", delta="Estável")
-with col3:
-    st.metric(label="Confiança Média", value="39.8%")
-
-# Tabela de Jogos
-st.subheader("⚠️ Monitoramento de Partidas")
-st.table(df)
-
-# Área de Notícias (Simulando a integração futura com IA)
-st.sidebar.header("🛡 Protocolos")
-if st.sidebar.button("Forçar Varredura"):
-    st.sidebar.write("Atlas varrendo mercados...")
-  
+if st.button("Consultar status do Protocolo"):
+    st.success("Atlas: Os sistemas estão operacionais, Senhor.")
+    
