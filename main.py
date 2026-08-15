@@ -68,4 +68,9 @@ def executar_robo():
 
 if __name__ == "__main__":
     executar_robo()
+
+executar_robo():    # ... logo após o loop que coleta os dados dos jogos:
+    with open('analise_jogos.json', 'w') as f:
+        json.dump(dados_para_o_atlas, f) # Onde 'dados_para_o_atlas' é a lista dos jogos
+        
     
