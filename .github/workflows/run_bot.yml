@@ -9,20 +9,20 @@ jobs:
   run-bot:
     runs-on: ubuntu-latest
     steps:
-      - name: Baixar codigo do repositorio
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Configurar ambiente Python
+      - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
 
-      - name: Instalar dependencias do projeto
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Executar o motor do robo
+      - name: Run bot engine
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
