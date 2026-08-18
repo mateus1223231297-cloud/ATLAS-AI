@@ -39,13 +39,13 @@ def gerar_analise_atlas(partida, prob):
     try:
         prompt = f"Você é o Atlas, uma IA consultora de apostas estilo Jarvis. Analise brevemente o jogo: {partida}. A probabilidade de Over 2.5 gols calculada é de {prob}%. Seja técnico, sarcástico como o Jarvis e dê um conselho de investimento curto."
         response = client.chat.completions.create(
-            model="gpt-4o-mini",
+            model="gpt-3.5-turbo",
             messages=[{"role": "user", "content": prompt}]
         )
         return response.choices[0].message.content
     except Exception as e:
-        print(f"Erro na OpenAI: {e}")
-        return "Análise do protocolo Atlas indisponível no momento."
+        print(f"ERRO DETALHADO DA OPENAI: {str(e)}")
+        return f"Erro OpenAI: {str(e)[:30]}"
 
 def executar_robo():
     url = 'https://api.the-odds-api.com/v4/sports/soccer_brazil_campeonato/odds'
