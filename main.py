@@ -3,6 +3,8 @@ import math
 import requests
 import json
 from openai import OpenAI
+from requests.adapters import HTTPAdapter
+from urllib3.util import Retry
 
 # Inicializa o cliente OpenAI
 client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
@@ -10,6 +12,11 @@ client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
 API_KEY = os.getenv('ODDS_API_KEY')
 BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
 CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
+
+# Configura a sessão HTTP com tentativas automáticas em caso de queda de conexão
+session = requests.Session()
+retries = Retry(total=5, backoff_factor=1, status_forcelist=[500, 502, 503, 504])
+session.mount('https://', HTTPAdapter(max_retries=retries))
 
 dados_times = {
     "Flamengo": {"marcados": 1.7, "sofridos": 0.8},
@@ -23,7 +30,10 @@ dados_times = {
 
 def enviar_telegram(mensagem):
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
-    requests.get(url, params={'chat_id': CHAT_ID, 'text': mensagem, 'parse_mode': 'Markdown'})
+    try:
+        session.get(url, params={'chat_id': CHAT_ID, 'text': mensagem, 'parse_mode': 'Markdown'}, timeout=10)
+    except Exception as e:
+        print(f"Erro ao enviar mensagem no Telegram: {e}")
 
 def gerar_analise_atlas(partida, prob):
     try:
@@ -33,17 +43,24 @@ def gerar_analise_atlas(partida, prob):
             messages=[{"role": "user", "content": prompt}]
         )
         return response.choices[0].message.content
-    except:
+    except Exception as e:
+        print(f"Erro na OpenAI: {e}")
         return "Análise do protocolo Atlas indisponível no momento."
 
 def executar_robo():
     url = 'https://api.the-odds-api.com/v4/sports/soccer_brazil_campeonato/odds'
     params = {'apiKey': API_KEY, 'regions': 'eu', 'markets': 'totals', 'oddsFormat': 'decimal'}
     
-    response = requests.get(url, params=params)
-    if response.status_code != 200: return
+    try:
+        response = session.get(url, params=params, timeout=15)
+        if response.status_code != 200:
+            print(f"Erro na API de Odds: Status {response.status_code}")
+            return
+        data = response.json()
+    except Exception as e:
+        print(f"Falha de conexão ao buscar odds: {e}")
+        return
 
-    data = response.json()
     lista_atlas = []
 
     for event in data:
@@ -65,8 +82,8 @@ def executar_robo():
         
         lista_atlas.append({"Partida": f"{home} vs {away}", "Exp_Gols": round(lambda_final, 2), "Prob": f"{prob:.1f}%"})
 
-    with open('analise_jogos.json', 'w') as f:
-        json.dump(lista_atlas, f)
+    with open('analise_jogos.json', 'w', encoding='utf-8') as f:
+        json.dump(lista_atlas, f, ensure_ascii=False, indent=4)
 
 if __name__ == "__main__":
     executar_robo()
