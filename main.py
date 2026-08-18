@@ -2,12 +2,8 @@ import os
 import math
 import requests
 import json
-from openai import OpenAI
 from requests.adapters import HTTPAdapter
 from urllib3.util import Retry
-
-# Inicializa o cliente OpenAI
-client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
 
 API_KEY = os.getenv('ODDS_API_KEY')
 BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
@@ -35,17 +31,14 @@ def enviar_telegram(mensagem):
     except Exception as e:
         print(f"Erro ao enviar mensagem no Telegram: {e}")
 
-def gerar_analise_atlas(partida, prob):
-    try:
-        prompt = f"Você é o Atlas, uma IA consultora de apostas estilo Jarvis. Analise brevemente o jogo: {partida}. A probabilidade de Over 2.5 gols calculada é de {prob}%. Seja técnico, sarcástico como o Jarvis e dê um conselho de investimento curto."
-        response = client.chat.completions.create(
-            model="gpt-3.5-turbo",
-            messages=[{"role": "user", "content": prompt}]
-        )
-        return response.choices[0].message.content
-    except Exception as e:
-        print(f"ERRO DETALHADO DA OPENAI: {str(e)}")
-        return f"Erro OpenAI: {str(e)[:30]}"
+def gerar_analise_atlas(prob):
+    # Análises automáticas inteligentes e sarcásticas baseadas na probabilidade
+    if prob >= 55:
+        return "Senhor, os números indicam alta probabilidade de gols. Definitivamente viável, a menos que os ataques decidam tirar férias."
+    elif prob >= 45:
+        return "Cenário equilibrado. As probabilidades flutuam em zona de risco moderado, ideal para quem gosta de emoção."
+    else:
+        return "Estatísticas desfavoráveis para gols. Recomendo cautela, a menos que seu objetivo seja desafiar a lógica matemática."
 
 def executar_robo():
     url = 'https://api.the-odds-api.com/v4/sports/soccer_brazil_campeonato/odds'
@@ -73,8 +66,8 @@ def executar_robo():
         lambda_final = (((casa['marcados'] + fora['sofridos']) / 2) + ((fora['marcados'] + casa['sofridos']) / 2)) * 0.95
         prob = (1 - (math.exp(-lambda_final) * (1 + lambda_final + (lambda_final**2)/2))) * 100
         
-        # Gera a análise da IA
-        analise = gerar_analise_atlas(f"{home} vs {away}", f"{prob:.1f}")
+        # Gera a análise sarcástica localmente
+        analise = gerar_analise_atlas(prob)
         
         # Envia para o Telegram
         mensagem = f"🏟 *{home} vs {away}*\n📈 Exp. Gols: `{lambda_final:.2f}`\n⚽ Prob. Over 2.5: `{prob:.1f}%`\n\n🤖 *Atlas:* {analise}"
