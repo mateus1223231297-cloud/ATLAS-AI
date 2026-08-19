@@ -1,45 +1,58 @@
 import streamlit as st
 import pandas as pd
-import json
+import os
 
-# Configuração da página como "wide" para preencher a tela toda
-st.set_page_config(page_title="Atlas - Central de Inteligência", layout="wide")
+LOG_FILE = "atlas_history.csv"
 
-# CSS personalizado para o estilo "Homem de Ferro"
-st.markdown("""
-    <style>
-    /* Fundo escuro estilo Stark */
-    .stApp { background-color: #050b16; color: #00f2ff; }
-    
-    /* Cabeçalho estilo Jarvis */
-    h1 { color: #00f2ff; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 10px #00f2ff; }
-    
-    /* Cartões e tabelas com borda neon */
-    .stDataFrame { border: 1px solid #00f2ff; border-radius: 10px; }
-    
-    /* Botões */
-    div.stButton > button { background-color: #00f2ff; color: #000; font-weight: bold; border-radius: 5px; }
-    
-    /* Texto de status */
-    .stMetric { background-color: #0a192f; padding: 15px; border-radius: 10px; border-left: 5px solid #00f2ff; }
-    </style>
-""", unsafe_allow_html=True)
+st.set_page_config(page_title="Atlas Tracker Pro", page_icon="📈", layout="centered")
 
-st.title("🔴 ATLAS - Central de Inteligência")
+st.title("📈 Atlas Tracker | Gestão de Banca")
+st.markdown("Seu painel inteligente para controle de ROI e resultados.")
+
+if not os.path.isfile(LOG_FILE):
+    st.warning("⚠️ Nenhum histórico encontrado ainda. O arquivo atlas_history.csv será criado automaticamente quando você gerar sinais.")
+    # Cria um arquivo vazio se não existir para evitar erros
+    df_vazio = Data = pd.DataFrame(columns=["Data", "Jogo", "Mercado", "Casa", "Odd", "Probabilidade", "EV%", "Stake R$", "Status"])
+    df_vazio.to_csv(LOG_FILE, index=False)
+    df = df_vazio
+else:
+    df = pd.read_csv(LOG_FILE)
+
+if "Status" not in df.columns:
+    df["Status"] = "Pendente"
+    df.to_csv(LOG_FILE, index=False)
+
+st.subheader("📋 Suas Entradas Registradas")
+st.dataframe(df, use_container_width=True)
+
 st.markdown("---")
+st.subheader("🎯 Atualizar Resultado de Entrada")
 
-try:
-    with open('analise_jogos.json', 'r') as f:
-        dados = json.load(f)
-        df = pd.DataFrame(dados)
-        
-        # Exibe a tabela com um visual melhor
-        st.subheader("⚠️ Monitoramento de Partidas - Protocolo Ativo")
-        st.dataframe(df, use_container_width=True)
-        
-except FileNotFoundError:
-    st.warning("⚠️ Atlas em espera. Execute o robô de varredura para atualizar os dados do sistema.")
+if len(df) > 0:
+    index_jogo = st.selectbox("Escolha a partida para atualizar:", df.index, format_func=lambda x: f"{df.loc[x, 'Data']} - {df.loc[x, 'Jogo']} ({df.loc[x, 'Mercado']})")
+    
+    novo_status = st.radio("Resultado:", ["Pendente", "Green ✅", "Red ❌"], horizontal=True)
+    
+    if st.button("Salvar Resultado"):
+        df.loc[index_jogo, "Status"] = novo_status
+        df.to_csv(LOG_FILE, index=False)
+        st.success("Status atualizado com sucesso!")
+        st.rerun()
 
-# Footer estilo JARVIS
 st.markdown("---")
-st.write("🤖 *'Senhor, todos os sistemas estão online e operacionais.'* - Atlas")
+st.subheader("📊 Métricas e Desempenho (ROI)")
+
+finalizadas = df[df["Status"].isin(["Green ✅", "Red ❌"])]
+total_apostas = len(finalizadas)
+
+if total_apostas > 0:
+    greens = len(df[df["Status"] == "Green ✅"])
+    win_rate = (greens / total_apostas) * 100
+    
+    col1, col2, col3 = st.columns(3)
+    col1.metric("Total Finalizadas", total_apostas)
+    col2.metric("Win Rate", f"{round(win_rate, 1)}%")
+    col3.metric("Greens", greens)
+else:
+    st.info("ℹ️ Atualize ao menos uma aposta como Green ou Red para ver as estatísticas de ROI.")
+    
