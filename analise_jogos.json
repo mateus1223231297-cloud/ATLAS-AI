@@ -85,14 +85,14 @@
         "Prob": "44.8%"
     },
     {
-        "Partida": "Bahia vs Internacional",
-        "Exp_Gols": 2.47,
-        "Prob": "44.8%"
-    },
-    {
         "Partida": "Mirassol vs Palmeiras",
         "Exp_Gols": 2.28,
         "Prob": "39.9%"
+    },
+    {
+        "Partida": "Bahia vs Internacional",
+        "Exp_Gols": 2.47,
+        "Prob": "44.8%"
     },
     {
         "Partida": "Remo vs Coritiba",
