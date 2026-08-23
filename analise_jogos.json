@@ -1,20 +1,5 @@
 [
     {
-        "Partida": "Fluminense vs Remo",
-        "Exp_Gols": 2.33,
-        "Prob": "41.1%"
-    },
-    {
-        "Partida": "Internacional vs Atletico Mineiro",
-        "Exp_Gols": 2.47,
-        "Prob": "44.8%"
-    },
-    {
-        "Partida": "Cruzeiro vs Flamengo",
-        "Exp_Gols": 2.42,
-        "Prob": "43.6%"
-    },
-    {
         "Partida": "Vitoria vs Bahia",
         "Exp_Gols": 2.47,
         "Prob": "44.8%"
