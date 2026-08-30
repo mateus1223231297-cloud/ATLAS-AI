@@ -1,10 +1,5 @@
 [
     {
-        "Partida": "Atletico Paranaense vs Fluminense",
-        "Exp_Gols": 2.23,
-        "Prob": "38.6%"
-    },
-    {
         "Partida": "Flamengo vs Botafogo",
         "Exp_Gols": 2.42,
         "Prob": "43.6%"
