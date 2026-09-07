@@ -53,5 +53,10 @@
         "Partida": "Bahia vs Remo",
         "Exp_Gols": 2.47,
         "Prob": "44.8%"
+    },
+    {
+        "Partida": "Flamengo vs Bragantino-SP",
+        "Exp_Gols": 2.38,
+        "Prob": "42.4%"
     }
 ]
