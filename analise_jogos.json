@@ -1,10 +1,5 @@
 [
     {
-        "Partida": "Coritiba vs Atletico Paranaense",
-        "Exp_Gols": 2.28,
-        "Prob": "39.9%"
-    },
-    {
         "Partida": "Atletico Mineiro vs Fluminense",
         "Exp_Gols": 2.33,
         "Prob": "41.1%"
@@ -46,6 +41,11 @@
     },
     {
         "Partida": "Bahia vs Remo",
+        "Exp_Gols": 2.47,
+        "Prob": "44.8%"
+    },
+    {
+        "Partida": "Botafogo vs Grêmio",
         "Exp_Gols": 2.47,
         "Prob": "44.8%"
     },
