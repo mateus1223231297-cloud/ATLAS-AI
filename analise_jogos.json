@@ -1,23 +1,13 @@
 [
     {
-        "Partida": "Corinthians vs Fluminense",
-        "Exp_Gols": 2.33,
-        "Prob": "41.1%"
-    },
-    {
-        "Partida": "Vitoria vs Cruzeiro",
+        "Partida": "Sao Paulo vs Santos",
         "Exp_Gols": 2.47,
         "Prob": "44.8%"
     },
     {
-        "Partida": "Flamengo vs Bragantino-SP",
-        "Exp_Gols": 2.38,
-        "Prob": "42.4%"
-    },
-    {
-        "Partida": "Atletico Paranaense vs Bahia",
-        "Exp_Gols": 2.38,
-        "Prob": "42.4%"
+        "Partida": "Atletico Mineiro vs Bragantino-SP",
+        "Exp_Gols": 2.42,
+        "Prob": "43.6%"
     },
     {
         "Partida": "Bragantino-SP vs Mirassol",
