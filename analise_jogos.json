@@ -98,5 +98,10 @@
         "Partida": "Bragantino-SP vs Cruzeiro",
         "Exp_Gols": 2.42,
         "Prob": "43.6%"
+    },
+    {
+        "Partida": "Mirassol vs Internacional",
+        "Exp_Gols": 2.47,
+        "Prob": "44.8%"
     }
 ]
