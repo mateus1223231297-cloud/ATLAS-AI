@@ -1,25 +1,5 @@
 [
     {
-        "Partida": "Palmeiras vs Corinthians",
-        "Exp_Gols": 2.28,
-        "Prob": "39.9%"
-    },
-    {
-        "Partida": "Flamengo vs Fluminense",
-        "Exp_Gols": 2.28,
-        "Prob": "39.9%"
-    },
-    {
-        "Partida": "Grêmio vs Internacional",
-        "Exp_Gols": 2.47,
-        "Prob": "44.8%"
-    },
-    {
-        "Partida": "Bahia vs Mirassol",
-        "Exp_Gols": 2.47,
-        "Prob": "44.8%"
-    },
-    {
         "Partida": "Coritiba vs Botafogo",
         "Exp_Gols": 2.38,
         "Prob": "42.4%"
