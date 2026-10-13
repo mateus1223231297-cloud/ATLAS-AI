@@ -1,20 +1,5 @@
 [
     {
-        "Partida": "Coritiba vs Botafogo",
-        "Exp_Gols": 2.38,
-        "Prob": "42.4%"
-    },
-    {
-        "Partida": "Chapecoense vs Atletico Paranaense",
-        "Exp_Gols": 2.38,
-        "Prob": "42.4%"
-    },
-    {
-        "Partida": "Bragantino-SP vs Cruzeiro",
-        "Exp_Gols": 2.42,
-        "Prob": "43.6%"
-    },
-    {
         "Partida": "Mirassol vs Internacional",
         "Exp_Gols": 2.47,
         "Prob": "44.8%"
@@ -63,5 +48,55 @@
         "Partida": "Corinthians vs Vitoria",
         "Exp_Gols": 2.47,
         "Prob": "44.8%"
+    },
+    {
+        "Partida": "Cruzeiro vs Remo",
+        "Exp_Gols": 2.47,
+        "Prob": "44.8%"
+    },
+    {
+        "Partida": "Vitoria vs Atletico Paranaense",
+        "Exp_Gols": 2.38,
+        "Prob": "42.4%"
+    },
+    {
+        "Partida": "Internacional vs Botafogo",
+        "Exp_Gols": 2.47,
+        "Prob": "44.8%"
+    },
+    {
+        "Partida": "Mirassol vs Sao Paulo",
+        "Exp_Gols": 2.47,
+        "Prob": "44.8%"
+    },
+    {
+        "Partida": "Palmeiras vs Bragantino-SP",
+        "Exp_Gols": 2.23,
+        "Prob": "38.6%"
+    },
+    {
+        "Partida": "Vasco da Gama vs Corinthians",
+        "Exp_Gols": 2.47,
+        "Prob": "44.8%"
+    },
+    {
+        "Partida": "Chapecoense vs Fluminense",
+        "Exp_Gols": 2.33,
+        "Prob": "41.1%"
+    },
+    {
+        "Partida": "Santos vs Bahia",
+        "Exp_Gols": 2.47,
+        "Prob": "44.8%"
+    },
+    {
+        "Partida": "Coritiba vs Grêmio",
+        "Exp_Gols": 2.38,
+        "Prob": "42.4%"
+    },
+    {
+        "Partida": "Flamengo vs Atletico Mineiro",
+        "Exp_Gols": 2.42,
+        "Prob": "43.6%"
     }
 ]
