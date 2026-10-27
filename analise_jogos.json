@@ -1,15 +1,5 @@
 [
     {
-        "Partida": "Coritiba vs Grêmio",
-        "Exp_Gols": 2.38,
-        "Prob": "42.4%"
-    },
-    {
-        "Partida": "Flamengo vs Atletico Mineiro",
-        "Exp_Gols": 2.42,
-        "Prob": "43.6%"
-    },
-    {
         "Partida": "Bragantino-SP vs Chapecoense",
         "Exp_Gols": 2.42,
         "Prob": "43.6%"
