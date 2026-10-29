@@ -1,30 +1,5 @@
 [
     {
-        "Partida": "Bragantino-SP vs Chapecoense",
-        "Exp_Gols": 2.42,
-        "Prob": "43.6%"
-    },
-    {
-        "Partida": "Fluminense vs Internacional",
-        "Exp_Gols": 2.33,
-        "Prob": "41.1%"
-    },
-    {
-        "Partida": "Santos vs Palmeiras",
-        "Exp_Gols": 2.28,
-        "Prob": "39.9%"
-    },
-    {
-        "Partida": "Bahia vs Sao Paulo",
-        "Exp_Gols": 2.47,
-        "Prob": "44.8%"
-    },
-    {
-        "Partida": "Remo vs Botafogo",
-        "Exp_Gols": 2.47,
-        "Prob": "44.8%"
-    },
-    {
         "Partida": "Atletico Mineiro vs Cruzeiro",
         "Exp_Gols": 2.47,
         "Prob": "44.8%"
