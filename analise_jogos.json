@@ -1,15 +1,5 @@
 [
     {
-        "Partida": "Chapecoense vs Mirassol",
-        "Exp_Gols": 2.47,
-        "Prob": "44.8%"
-    },
-    {
-        "Partida": "Internacional vs Coritiba",
-        "Exp_Gols": 2.38,
-        "Prob": "42.4%"
-    },
-    {
         "Partida": "Atletico Paranaense vs Vasco da Gama",
         "Exp_Gols": 2.38,
         "Prob": "42.4%"
@@ -43,5 +33,10 @@
         "Partida": "Vitoria vs Fluminense",
         "Exp_Gols": 2.33,
         "Prob": "41.1%"
+    },
+    {
+        "Partida": "Mirassol vs Atletico Mineiro",
+        "Exp_Gols": 2.47,
+        "Prob": "44.8%"
     }
 ]
