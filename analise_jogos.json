@@ -1,25 +1,5 @@
 [
     {
-        "Partida": "Atletico Paranaense vs Vasco da Gama",
-        "Exp_Gols": 2.38,
-        "Prob": "42.4%"
-    },
-    {
-        "Partida": "Flamengo vs Grêmio",
-        "Exp_Gols": 2.42,
-        "Prob": "43.6%"
-    },
-    {
-        "Partida": "Botafogo vs Atletico Mineiro",
-        "Exp_Gols": 2.47,
-        "Prob": "44.8%"
-    },
-    {
-        "Partida": "Sao Paulo vs Corinthians",
-        "Exp_Gols": 2.47,
-        "Prob": "44.8%"
-    },
-    {
         "Partida": "Palmeiras vs Remo",
         "Exp_Gols": 2.28,
         "Prob": "39.9%"
@@ -36,6 +16,11 @@
     },
     {
         "Partida": "Mirassol vs Atletico Mineiro",
+        "Exp_Gols": 2.47,
+        "Prob": "44.8%"
+    },
+    {
+        "Partida": "Chapecoense vs Vasco da Gama",
         "Exp_Gols": 2.47,
         "Prob": "44.8%"
     }
