@@ -1,15 +1,5 @@
 [
     {
-        "Partida": "Palmeiras vs Remo",
-        "Exp_Gols": 2.28,
-        "Prob": "39.9%"
-    },
-    {
-        "Partida": "Cruzeiro vs Bahia",
-        "Exp_Gols": 2.47,
-        "Prob": "44.8%"
-    },
-    {
         "Partida": "Vitoria vs Fluminense",
         "Exp_Gols": 2.33,
         "Prob": "41.1%"
@@ -21,6 +11,16 @@
     },
     {
         "Partida": "Chapecoense vs Vasco da Gama",
+        "Exp_Gols": 2.47,
+        "Prob": "44.8%"
+    },
+    {
+        "Partida": "Cruzeiro vs Palmeiras",
+        "Exp_Gols": 2.28,
+        "Prob": "39.9%"
+    },
+    {
+        "Partida": "Vasco da Gama vs Internacional",
         "Exp_Gols": 2.47,
         "Prob": "44.8%"
     }
