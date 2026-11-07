@@ -10,9 +10,29 @@
         "Prob": "44.8%"
     },
     {
+        "Partida": "Coritiba vs Santos",
+        "Exp_Gols": 2.38,
+        "Prob": "42.4%"
+    },
+    {
+        "Partida": "Flamengo vs Atletico Paranaense",
+        "Exp_Gols": 2.33,
+        "Prob": "41.1%"
+    },
+    {
         "Partida": "Cruzeiro vs Palmeiras",
         "Exp_Gols": 2.28,
         "Prob": "39.9%"
+    },
+    {
+        "Partida": "Grêmio vs Bahia",
+        "Exp_Gols": 2.47,
+        "Prob": "44.8%"
+    },
+    {
+        "Partida": "Corinthians vs Botafogo",
+        "Exp_Gols": 2.47,
+        "Prob": "44.8%"
     },
     {
         "Partida": "Vitoria vs Bragantino-SP",
@@ -23,5 +43,10 @@
         "Partida": "Vasco da Gama vs Internacional",
         "Exp_Gols": 2.47,
         "Prob": "44.8%"
+    },
+    {
+        "Partida": "Sao Paulo vs Fluminense",
+        "Exp_Gols": 2.33,
+        "Prob": "41.1%"
     }
 ]
