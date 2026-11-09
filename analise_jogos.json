@@ -15,6 +15,11 @@
         "Prob": "42.4%"
     },
     {
+        "Partida": "Remo vs Chapecoense",
+        "Exp_Gols": 2.47,
+        "Prob": "44.8%"
+    },
+    {
         "Partida": "Flamengo vs Atletico Paranaense",
         "Exp_Gols": 2.33,
         "Prob": "41.1%"
