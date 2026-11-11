@@ -53,5 +53,10 @@
         "Partida": "Sao Paulo vs Fluminense",
         "Exp_Gols": 2.33,
         "Prob": "41.1%"
+    },
+    {
+        "Partida": "Palmeiras vs Flamengo",
+        "Exp_Gols": 2.23,
+        "Prob": "38.6%"
     }
 ]
