@@ -58,5 +58,20 @@
         "Partida": "Palmeiras vs Flamengo",
         "Exp_Gols": 2.23,
         "Prob": "38.6%"
+    },
+    {
+        "Partida": "Bahia vs Coritiba",
+        "Exp_Gols": 2.38,
+        "Prob": "42.4%"
+    },
+    {
+        "Partida": "Chapecoense vs Cruzeiro",
+        "Exp_Gols": 2.47,
+        "Prob": "44.8%"
+    },
+    {
+        "Partida": "Atletico Paranaense vs Remo",
+        "Exp_Gols": 2.38,
+        "Prob": "42.4%"
     }
 ]
