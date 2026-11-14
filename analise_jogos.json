@@ -83,5 +83,20 @@
         "Partida": "Bragantino-SP vs Vasco da Gama",
         "Exp_Gols": 2.42,
         "Prob": "43.6%"
+    },
+    {
+        "Partida": "Internacional vs Vitoria",
+        "Exp_Gols": 2.47,
+        "Prob": "44.8%"
+    },
+    {
+        "Partida": "Botafogo vs Sao Paulo",
+        "Exp_Gols": 2.47,
+        "Prob": "44.8%"
+    },
+    {
+        "Partida": "Santos vs Grêmio",
+        "Exp_Gols": 2.47,
+        "Prob": "44.8%"
     }
 ]
