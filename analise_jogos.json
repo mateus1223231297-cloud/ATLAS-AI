@@ -98,5 +98,10 @@
         "Partida": "Santos vs Grêmio",
         "Exp_Gols": 2.47,
         "Prob": "44.8%"
+    },
+    {
+        "Partida": "Chapecoense vs Palmeiras",
+        "Exp_Gols": 2.28,
+        "Prob": "39.9%"
     }
 ]
